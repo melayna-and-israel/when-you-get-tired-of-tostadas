@@ -11,12 +11,15 @@ class Food extends React.Component{
     constructor(props: {} | Readonly<{}>){
         super(props);
         this.client = new DefaultApi(new ApiClient());
-        console.log(this.client.searchRecipes("pasta", {cuisine: "italian"}, console.log));
+        // this.client.getRandomRecipes({limitLicense: true, tags: "chicken", _number: 1}, (error: any, data: any, response: any)=>{
+        //     console.log(data);
+        // });
     }
 
    render(){
        return (
-        <p>Food stuff goes here</p>
+        <p>More Food stuff goes here :))))))</p>
+        
        );
    }
 }

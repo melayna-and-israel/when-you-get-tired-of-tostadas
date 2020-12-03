@@ -1860,7 +1860,7 @@ export default class DefaultApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ["apiKeyScheme"];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Object;

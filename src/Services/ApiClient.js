@@ -15,6 +15,7 @@
 import superagent from "superagent";
 import querystring from "querystring";
 
+
 /**
 * @module com.spoonacular.client/ApiClient
 * @version 1.0
@@ -41,7 +42,7 @@ class ApiClient {
          * @type {Array.<String>}
          */
         this.authentications = {
-            'apiKeyScheme': {type: 'apiKey', 'in': 'query', name: 'api_key'}
+            'apiKeyScheme': {type: 'apiKey', 'in': 'query', name: 'apiKey', apiKey: process.env.API_KEY}
         }
 
         /**
@@ -298,7 +299,6 @@ class ApiClient {
                             request.query(data);
                         }
                     }
-
                     break;
                 case 'oauth2':
                     if (auth.accessToken) {
@@ -385,7 +385,6 @@ class ApiClient {
         if (httpMethod.toUpperCase() === 'GET' && this.cache === false) {
             queryParams['_'] = new Date().getTime();
         }
-
         request.query(this.normalizeParams(queryParams));
 
         // set header parameters
@@ -398,6 +397,8 @@ class ApiClient {
 
         // set request timeout
         request.timeout(this.timeout);
+
+        
 
         var contentType = this.jsonPreferredMime(contentTypes);
         if (contentType) {
@@ -447,7 +448,6 @@ class ApiClient {
                 request.withCredentials();
             }
         }
-
         request.end((error, response) => {
             if (callback) {
                 var data = null;
