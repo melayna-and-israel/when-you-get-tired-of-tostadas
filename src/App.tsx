@@ -41,7 +41,7 @@ class App extends React.Component{
 
                     {/* Pass the store as a prop to the main page */}
                     <Route path="/">
-                        <Main />
+                        <Main foodStore = {this.store}/>
                     </Route>
                     
                 </Switch>
