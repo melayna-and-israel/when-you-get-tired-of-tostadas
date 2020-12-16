@@ -42,7 +42,7 @@ class ApiClient {
          * @type {Array.<String>}
          */
         this.authentications = {
-            'apiKeyScheme': {type: 'apiKey', 'in': 'query', name: 'apiKey', apiKey: process.env.API_KEY}
+            'apiKeyScheme': {type: 'apiKey', 'in': 'query', name: 'apiKey', apiKey: process.env.REACT_APP_API_KEY}
         }
 
         /**
