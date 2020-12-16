@@ -21,6 +21,104 @@ import InlineObject14 from '../com.spoonacular.client.model/InlineObject14';
 import InlineObject15 from '../com.spoonacular.client.model/InlineObject15';
 import InlineObject9 from '../com.spoonacular.client.model/InlineObject9';
 
+// type ComplexSearch = {
+//   'cuisine'?: String,
+//   'excludeCuisine'?: String,
+//   'diet'?: String,
+//   'intolerances'?: String,
+//   'equipment'?: string,
+//   'includeIngredients'?: String,
+//   'excludeIngredients'?: opts['excludeIngredients'],
+//   'type'?: String,
+//   'instructionsRequired'?: String,
+//   'fillIngredients'?: Boolean,
+//   'addRecipeInformation'?: Boolean,
+//   'addRecipeNutrition'?: Boolean,
+//   'author'?: String,
+//   'tags'?: String,
+//   'recipeBoxId'?: Number,
+//   'titleMatch'?: String,
+//   'maxReadyTime'?: Number,
+//   'ignorePantry'?: Boolean,
+//   'sort'?: String,
+//   'sortDirection'?: String,
+//   'minCarbs'?: Number,
+//   'maxCarbs': Number,
+//   'minProtein': Number,
+//   'maxProtein': Number,
+//   'minCalories': Number,
+//   'maxCalories': Number,
+//   'minFat'?: Number,
+//   'maxFat'?: Number,
+//   'minAlcohol'?: Number,
+//   'maxAlcohol'?: Number,
+//   'minCaffeine'?: Number,
+//   'maxCaffeine'?: Number,
+//   'minCopper'?: Number,
+//   'maxCopper'?: Number,
+//   'minCalcium'?: Number,
+//   'maxCalcium'?: Number,
+//   'minCholine'?: Number,
+//   'maxCholine'?: Number,
+//   'minCholesterol'?: Number
+//   'maxCholesterol'?: Number,
+//   'minFluoride'?: Number,
+//   'maxFluoride'?: Number,
+//   'minSaturatedFat'?: Number,
+//   'maxSaturatedFat'?: Number,
+//   'minVitaminA'?: Number,
+//   'maxVitaminA'?: Number,
+//   'minVitaminC'?: Number,
+//   'maxVitaminC'?: Number,
+//   'minVitaminD'?: Number,
+//   'maxVitaminD'?: Number,
+//   'minVitaminE'?: Number,
+//   'maxVitaminE'?: Number,
+//   'minVitaminK'?: Number,
+//   'maxVitaminK'?: Number,
+//   'minVitaminB1'?: Number,
+//   'maxVitaminB1'?: Number,
+//   'minVitaminB2'?: Number,
+//   'maxVitaminB2'?: Number,
+//   'minVitaminB5'?: Number,
+//   'maxVitaminB5'?: Number,
+//   'minVitaminB3'?: Number,
+//   'maxVitaminB3'?: Number,
+//   'minVitaminB6'?: Number,
+//   'maxVitaminB6'?: Number,
+//   'minVitaminB12'?: Number,
+//   'maxVitaminB12'?: Number,
+//   'minFiber'?: Number,
+//   'maxFiber'?: Number,
+//   'minFolate'?: Number,
+//   'maxFolate'?: Number,
+//   'minFolicAcid'?: Number,
+//   'maxFolicAcid'?: Number,
+//   'minIodine'?: Number,
+//   'maxIodine'?: Number,
+//   'minIron'?: Number,
+//   'maxIron'?: Number,
+//   'minMagnesium'?: Number,
+//   'maxMagnesium'?: Number,
+//   'minManganese'?: Number,
+//   'maxManganese'?: Number,
+//   'minPhosphorus'?: Number,
+//   'maxPhosphorus'?: Number,
+//   'minPotassium'?: Number,
+//   'maxPotassium'?: Number,
+//   'minSelenium'?: Number,
+//   'maxSelenium'?: Number,
+//   'minSodium'?: Number,
+//   'maxSodium'?: Number,
+//   'minSugar'?: Number,
+//   'maxSugar'?: Number,
+//   'minZinc'?: Number,
+//   'maxZinc'?: Number,
+//   'offset'?: Number,
+//   'number'?: Number,
+//   'limitLicense'?: Boolean
+// }
+
 /**
 * Default service.
 * @module com.spoonacular.client/com.spoonacular/DefaultApi
@@ -1815,7 +1913,7 @@ export default class DefaultApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ["apiKeyScheme"];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Object;
@@ -1903,7 +2001,7 @@ export default class DefaultApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ["apiKeyScheme"];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Object;
@@ -1950,7 +2048,7 @@ export default class DefaultApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ["apiKeyScheme"];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Object;
@@ -1997,7 +2095,7 @@ export default class DefaultApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ["apiKeyScheme"];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Object;
@@ -2040,7 +2138,7 @@ export default class DefaultApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ["apiKeyScheme"];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Object;
@@ -2083,7 +2181,7 @@ export default class DefaultApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ["apiKeyScheme"];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Object;
@@ -2126,7 +2224,7 @@ export default class DefaultApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ["apiKeyScheme"];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Object;
@@ -3114,103 +3212,103 @@ export default class DefaultApi {
     /**
      * Search Recipes
      * Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
-     * @param {String} query The (natural language) recipe search query.
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
-     * @param {String} opts.excludeCuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.
-     * @param {String} opts.diet The diet for which the recipes must be suitable. See a full list of supported diets.
-     * @param {String} opts.intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
-     * @param {String} opts.equipment The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\".
-     * @param {String} opts.includeIngredients A comma-separated list of ingredients that should/must be used in the recipes.
-     * @param {String} opts.excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain.
-     * @param {String} opts.type The type of recipe. See a full list of supported meal types.
-     * @param {Boolean} opts.instructionsRequired Whether the recipes must have instructions.
-     * @param {Boolean} opts.fillIngredients Add information about the ingredients and whether they are used or missing in relation to the query.
-     * @param {Boolean} opts.addRecipeInformation If set to true, you get more information about the recipes returned.
-     * @param {Boolean} opts.addRecipeNutrition If set to true, you get nutritional information about each recipes returned.
-     * @param {String} opts.author The username of the recipe author.
-     * @param {String} opts.tags User defined tags that have to match. The author param has to be set.
-     * @param {Number} opts.recipeBoxId The id of the recipe box to which the search should be limited to.
-     * @param {String} opts.titleMatch Enter text that must be found in the title of the recipes.
-     * @param {Number} opts.maxReadyTime The maximum time in minutes it should take to prepare and cook the recipe.
-     * @param {Boolean} opts.ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc.
-     * @param {String} opts.sort The strategy to sort recipes by. See a full list of supported sorting options.
-     * @param {String} opts.sortDirection The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
-     * @param {Number} opts.minCarbs The minimum amount of carbohydrates in grams the recipe must have.
-     * @param {Number} opts.maxCarbs The maximum amount of carbohydrates in grams the recipe can have.
-     * @param {Number} opts.minProtein The minimum amount of protein in grams the recipe must have.
-     * @param {Number} opts.maxProtein The maximum amount of protein in grams the recipe can have.
-     * @param {Number} opts.minCalories The minimum amount of calories the recipe must have.
-     * @param {Number} opts.maxCalories The maximum amount of calories the recipe can have.
-     * @param {Number} opts.minFat The minimum amount of fat in grams the recipe must have.
-     * @param {Number} opts.maxFat The maximum amount of fat in grams the recipe can have.
-     * @param {Number} opts.minAlcohol The minimum amount of alcohol in grams the recipe must have.
-     * @param {Number} opts.maxAlcohol The maximum amount of alcohol in grams the recipe can have.
-     * @param {Number} opts.minCaffeine The minimum amount of caffeine in milligrams the recipe must have.
-     * @param {Number} opts.maxCaffeine The maximum amount of caffeine in milligrams the recipe can have.
-     * @param {Number} opts.minCopper The minimum amount of copper in milligrams the recipe must have.
-     * @param {Number} opts.maxCopper The maximum amount of copper in milligrams the recipe can have.
-     * @param {Number} opts.minCalcium The minimum amount of calcium in milligrams the recipe must have.
-     * @param {Number} opts.maxCalcium The maximum amount of calcium in milligrams the recipe can have.
-     * @param {Number} opts.minCholine The minimum amount of choline in milligrams the recipe must have.
-     * @param {Number} opts.maxCholine The maximum amount of choline in milligrams the recipe can have.
-     * @param {Number} opts.minCholesterol The minimum amount of cholesterol in milligrams the recipe must have.
-     * @param {Number} opts.maxCholesterol The maximum amount of cholesterol in milligrams the recipe can have.
-     * @param {Number} opts.minFluoride The minimum amount of fluoride in milligrams the recipe must have.
-     * @param {Number} opts.maxFluoride The maximum amount of fluoride in milligrams the recipe can have.
-     * @param {Number} opts.minSaturatedFat The minimum amount of saturated fat in grams the recipe must have.
-     * @param {Number} opts.maxSaturatedFat The maximum amount of saturated fat in grams the recipe can have.
-     * @param {Number} opts.minVitaminA The minimum amount of Vitamin A in IU the recipe must have.
-     * @param {Number} opts.maxVitaminA The maximum amount of Vitamin A in IU the recipe can have.
-     * @param {Number} opts.minVitaminC The minimum amount of Vitamin C milligrams the recipe must have.
-     * @param {Number} opts.maxVitaminC The maximum amount of Vitamin C in milligrams the recipe can have.
-     * @param {Number} opts.minVitaminD The minimum amount of Vitamin D in micrograms the recipe must have.
-     * @param {Number} opts.maxVitaminD The maximum amount of Vitamin D in micrograms the recipe can have.
-     * @param {Number} opts.minVitaminE The minimum amount of Vitamin E in milligrams the recipe must have.
-     * @param {Number} opts.maxVitaminE The maximum amount of Vitamin E in milligrams the recipe can have.
-     * @param {Number} opts.minVitaminK The minimum amount of Vitamin K in micrograms the recipe must have.
-     * @param {Number} opts.maxVitaminK The maximum amount of Vitamin K in micrograms the recipe can have.
-     * @param {Number} opts.minVitaminB1 The minimum amount of Vitamin B1 in milligrams the recipe must have.
-     * @param {Number} opts.maxVitaminB1 The maximum amount of Vitamin B1 in milligrams the recipe can have.
-     * @param {Number} opts.minVitaminB2 The minimum amount of Vitamin B2 in milligrams the recipe must have.
-     * @param {Number} opts.maxVitaminB2 The maximum amount of Vitamin B2 in milligrams the recipe can have.
-     * @param {Number} opts.minVitaminB5 The minimum amount of Vitamin B5 in milligrams the recipe must have.
-     * @param {Number} opts.maxVitaminB5 The maximum amount of Vitamin B5 in milligrams the recipe can have.
-     * @param {Number} opts.minVitaminB3 The minimum amount of Vitamin B3 in milligrams the recipe must have.
-     * @param {Number} opts.maxVitaminB3 The maximum amount of Vitamin B3 in milligrams the recipe can have.
-     * @param {Number} opts.minVitaminB6 The minimum amount of Vitamin B6 in milligrams the recipe must have.
-     * @param {Number} opts.maxVitaminB6 The maximum amount of Vitamin B6 in milligrams the recipe can have.
-     * @param {Number} opts.minVitaminB12 The minimum amount of Vitamin B12 in micrograms the recipe must have.
-     * @param {Number} opts.maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have.
-     * @param {Number} opts.minFiber The minimum amount of fiber in grams the recipe must have.
-     * @param {Number} opts.maxFiber The maximum amount of fiber in grams the recipe can have.
-     * @param {Number} opts.minFolate The minimum amount of folate in micrograms the recipe must have.
-     * @param {Number} opts.maxFolate The maximum amount of folate in micrograms the recipe can have.
-     * @param {Number} opts.minFolicAcid The minimum amount of folic acid in micrograms the recipe must have.
-     * @param {Number} opts.maxFolicAcid The maximum amount of folic acid in micrograms the recipe can have.
-     * @param {Number} opts.minIodine The minimum amount of iodine in micrograms the recipe must have.
-     * @param {Number} opts.maxIodine The maximum amount of iodine in micrograms the recipe can have.
-     * @param {Number} opts.minIron The minimum amount of iron in milligrams the recipe must have.
-     * @param {Number} opts.maxIron The maximum amount of iron in milligrams the recipe can have.
-     * @param {Number} opts.minMagnesium The minimum amount of magnesium in milligrams the recipe must have.
-     * @param {Number} opts.maxMagnesium The maximum amount of magnesium in milligrams the recipe can have.
-     * @param {Number} opts.minManganese The minimum amount of manganese in milligrams the recipe must have.
-     * @param {Number} opts.maxManganese The maximum amount of manganese in milligrams the recipe can have.
-     * @param {Number} opts.minPhosphorus The minimum amount of phosphorus in milligrams the recipe must have.
-     * @param {Number} opts.maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have.
-     * @param {Number} opts.minPotassium The minimum amount of potassium in milligrams the recipe must have.
-     * @param {Number} opts.maxPotassium The maximum amount of potassium in milligrams the recipe can have.
-     * @param {Number} opts.minSelenium The minimum amount of selenium in micrograms the recipe must have.
-     * @param {Number} opts.maxSelenium The maximum amount of selenium in micrograms the recipe can have.
-     * @param {Number} opts.minSodium The minimum amount of sodium in milligrams the recipe must have.
-     * @param {Number} opts.maxSodium The maximum amount of sodium in milligrams the recipe can have.
-     * @param {Number} opts.minSugar The minimum amount of sugar in grams the recipe must have.
-     * @param {Number} opts.maxSugar The maximum amount of sugar in grams the recipe can have.
-     * @param {Number} opts.minZinc The minimum amount of zinc in milligrams the recipe must have.
-     * @param {Number} opts.maxZinc The maximum amount of zinc in milligrams the recipe can have.
-     * @param {Number} opts.offset The number of results to skip (between 0 and 900).
-     * @param {Number} opts._number The number of expected results (between 1 and 100).
-     * @param {Boolean} opts.limitLicense Whether the recipes should have an open license that allows display with proper attribution.
+     * @param {String?} query The (natural language) recipe search query.
+     * @param {Object | undefined} opts Optional parameters
+     * @param {String | undefined} opts.excludeCuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.
+     * @param {String| undefined} opts.cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
+     * @param {String| undefined} opts.diet The diet for which the recipes must be suitable. See a full list of supported diets.
+     * @param {String| undefined} opts.intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
+     * @param {String| undefined} opts.equipment The equipment required. Multiple values will be interpreted as 'or'. For example, value could be \"blender, frying pan, bowl\".
+     * @param {String| undefined} opts.includeIngredients A comma-separated list of ingredients that should/must be used in the recipes.
+     * @param {String| undefined} opts.excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain.
+     * @param {String| undefined} opts.type The type of recipe. See a full list of supported meal types.
+     * @param {Boolean| undefined} opts.instructionsRequired Whether the recipes must have instructions.
+     * @param {Boolean| undefined} opts.fillIngredients Add information about the ingredients and whether they are used or missing in relation to the query.
+     * @param {Boolean| undefined} opts.addRecipeInformation If set to true, you get more information about the recipes returned.
+     * @param {Boolean| undefined} opts.addRecipeNutrition If set to true, you get nutritional information about each recipes returned.
+     * @param {String | undefined} opts.author The username of the recipe author.
+     * @param {String | undefined} opts.tags User defined tags that have to match. The author param has to be set.
+     * @param {Number | undefined} opts.recipeBoxId The id of the recipe box to which the search should be limited to.
+     * @param {String | undefined} opts.titleMatch Enter text that must be found in the title of the recipes.
+     * @param {Number | undefined} opts.maxReadyTime The maximum time in minutes it should take to prepare and cook the recipe.
+     * @param {Boolean | undefined} opts.ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc.
+     * @param {String | undefined} opts.sort The strategy to sort recipes by. See a full list of supported sorting options.
+     * @param {String | undefined} opts.sortDirection The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
+     * @param {Number | undefined} opts.minCarbs The minimum amount of carbohydrates in grams the recipe must have.
+     * @param {Number | undefined} opts.maxCarbs The maximum amount of carbohydrates in grams the recipe can have.
+     * @param {Number | undefined} opts.minProtein The minimum amount of protein in grams the recipe must have.
+     * @param {Number | undefined} opts.maxProtein The maximum amount of protein in grams the recipe can have.
+     * @param {Number | undefined} opts.minCalories The minimum amount of calories the recipe must have.
+     * @param {Number | undefined} opts.maxCalories The maximum amount of calories the recipe can have.
+     * @param {Number | undefined} opts.minFat The minimum amount of fat in grams the recipe must have.
+     * @param {Number | undefined} opts.maxFat The maximum amount of fat in grams the recipe can have.
+     * @param {Number | undefined} opts.minAlcohol The minimum amount of alcohol in grams the recipe must have.
+     * @param {Number | undefined} opts.maxAlcohol The maximum amount of alcohol in grams the recipe can have.
+     * @param {Number | undefined} opts.minCaffeine The minimum amount of caffeine in milligrams the recipe must have.
+     * @param {Number | undefined} opts.maxCaffeine The maximum amount of caffeine in milligrams the recipe can have.
+     * @param {Number | undefined} opts.minCopper The minimum amount of copper in milligrams the recipe must have.
+     * @param {Number | undefined} opts.maxCopper The maximum amount of copper in milligrams the recipe can have.
+     * @param {Number | undefined} opts.minCalcium The minimum amount of calcium in milligrams the recipe must have.
+     * @param {Number | undefined} opts.maxCalcium The maximum amount of calcium in milligrams the recipe can have.
+     * @param {Number | undefined} opts.minCholine The minimum amount of choline in milligrams the recipe must have.
+     * @param {Number | undefined} opts.maxCholine The maximum amount of choline in milligrams the recipe can have.
+     * @param {Number | undefined} opts.minCholesterol The minimum amount of cholesterol in milligrams the recipe must have.
+     * @param {Number | undefined} opts.maxCholesterol The maximum amount of cholesterol in milligrams the recipe can have.
+     * @param {Number | undefined} opts.minFluoride The minimum amount of fluoride in milligrams the recipe must have.
+     * @param {Number | undefined} opts.maxFluoride The maximum amount of fluoride in milligrams the recipe can have.
+     * @param {Number | undefined} opts.minSaturatedFat The minimum amount of saturated fat in grams the recipe must have.
+     * @param {Number | undefined} opts.maxSaturatedFat The maximum amount of saturated fat in grams the recipe can have.
+     * @param {Number | undefined} opts.minVitaminA The minimum amount of Vitamin A in IU the recipe must have.
+     * @param {Number | undefined} opts.maxVitaminA The maximum amount of Vitamin A in IU the recipe can have.
+     * @param {Number | undefined} opts.minVitaminC The minimum amount of Vitamin C milligrams the recipe must have.
+     * @param {Number | undefined} opts.maxVitaminC The maximum amount of Vitamin C in milligrams the recipe can have.
+     * @param {Number | undefined} opts.minVitaminD The minimum amount of Vitamin D in micrograms the recipe must have.
+     * @param {Number | undefined} opts.maxVitaminD The maximum amount of Vitamin D in micrograms the recipe can have.
+     * @param {Number | undefined} opts.minVitaminE The minimum amount of Vitamin E in milligrams the recipe must have.
+     * @param {Number | undefined} opts.maxVitaminE The maximum amount of Vitamin E in milligrams the recipe can have.
+     * @param {Number | undefined} opts.minVitaminK The minimum amount of Vitamin K in micrograms the recipe must have.
+     * @param {Number | undefined} opts.maxVitaminK The maximum amount of Vitamin K in micrograms the recipe can have.
+     * @param {Number | undefined} opts.minVitaminB1 The minimum amount of Vitamin B1 in milligrams the recipe must have.
+     * @param {Number | undefined} opts.maxVitaminB1 The maximum amount of Vitamin B1 in milligrams the recipe can have.
+     * @param {Number | undefined} opts.minVitaminB2 The minimum amount of Vitamin B2 in milligrams the recipe must have.
+     * @param {Number | undefined} opts.maxVitaminB2 The maximum amount of Vitamin B2 in milligrams the recipe can have.
+     * @param {Number | undefined} opts.minVitaminB5 The minimum amount of Vitamin B5 in milligrams the recipe must have.
+     * @param {Number | undefined} opts.maxVitaminB5 The maximum amount of Vitamin B5 in milligrams the recipe can have.
+     * @param {Number | undefined} opts.minVitaminB3 The minimum amount of Vitamin B3 in milligrams the recipe must have.
+     * @param {Number | undefined} opts.maxVitaminB3 The maximum amount of Vitamin B3 in milligrams the recipe can have.
+     * @param {Number | undefined} opts.minVitaminB6 The minimum amount of Vitamin B6 in milligrams the recipe must have.
+     * @param {Number | undefined} opts.maxVitaminB6 The maximum amount of Vitamin B6 in milligrams the recipe can have.
+     * @param {Number | undefined} opts.minVitaminB12 The minimum amount of Vitamin B12 in micrograms the recipe must have.
+     * @param {Number | undefined} opts.maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have.
+     * @param {Number | undefined} opts.minFiber The minimum amount of fiber in grams the recipe must have.
+     * @param {Number | undefined} opts.maxFiber The maximum amount of fiber in grams the recipe can have.
+     * @param {Number | undefined} opts.minFolate The minimum amount of folate in micrograms the recipe must have.
+     * @param {Number | undefined} opts.maxFolate The maximum amount of folate in micrograms the recipe can have.
+     * @param {Number | undefined} opts.minFolicAcid The minimum amount of folic acid in micrograms the recipe must have.
+     * @param {Number | undefined} opts.maxFolicAcid The maximum amount of folic acid in micrograms the recipe can have.
+     * @param {Number | undefined} opts.minIodine The minimum amount of iodine in micrograms the recipe must have.
+     * @param {Number | undefined} opts.maxIodine The maximum amount of iodine in micrograms the recipe can have.
+     * @param {Number | undefined} opts.minIron The minimum amount of iron in milligrams the recipe must have.
+     * @param {Number | undefined} opts.maxIron The maximum amount of iron in milligrams the recipe can have.
+     * @param {Number | undefined} opts.minMagnesium The minimum amount of magnesium in milligrams the recipe must have.
+     * @param {Number | undefined} opts.maxMagnesium The maximum amount of magnesium in milligrams the recipe can have.
+     * @param {Number | undefined} opts.minManganese The minimum amount of manganese in milligrams the recipe must have.
+     * @param {Number | undefined} opts.maxManganese The maximum amount of manganese in milligrams the recipe can have.
+     * @param {Number | undefined} opts.minPhosphorus The minimum amount of phosphorus in milligrams the recipe must have.
+     * @param {Number | undefined} opts.maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have.
+     * @param {Number | undefined} opts.minPotassium The minimum amount of potassium in milligrams the recipe must have.
+     * @param {Number | undefined} opts.maxPotassium The maximum amount of potassium in milligrams the recipe can have.
+     * @param {Number | undefined} opts.minSelenium The minimum amount of selenium in micrograms the recipe must have.
+     * @param {Number | undefined} opts.maxSelenium The maximum amount of selenium in micrograms the recipe can have.
+     * @param {Number | undefined} opts.minSodium The minimum amount of sodium in milligrams the recipe must have.
+     * @param {Number | undefined} opts.maxSodium The maximum amount of sodium in milligrams the recipe can have.
+     * @param {Number | undefined} opts.minSugar The minimum amount of sugar in grams the recipe must have.
+     * @param {Number | undefined} opts.maxSugar The maximum amount of sugar in grams the recipe can have.
+     * @param {Number | undefined} opts.minZinc The minimum amount of zinc in milligrams the recipe must have.
+     * @param {Number | undefined} opts.maxZinc The maximum amount of zinc in milligrams the recipe can have.
+     * @param {Number | undefined} opts.offset The number of results to skip (between 0 and 900).
+     * @param {Number | undefined} opts._number The number of expected results (between 1 and 100).
+     * @param {Boolean | undefined} opts.limitLicense Whether the recipes should have an open license that allows display with proper attribution.
      * @param {module:com.spoonacular.client/com.spoonacular/DefaultApi~searchRecipesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
@@ -3327,7 +3425,7 @@ export default class DefaultApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ["apiKeyScheme"];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Object;

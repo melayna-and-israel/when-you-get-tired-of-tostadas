@@ -465,7 +465,7 @@ class ApiClient {
                 callback(error, data, response);
             }
         });
-
+        console.log(request);
         return request;
     }
 

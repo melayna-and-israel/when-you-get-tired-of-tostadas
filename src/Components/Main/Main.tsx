@@ -13,7 +13,6 @@ import DropdownButton from 'react-bootstrap/Button';
 import DropdownItem from 'react-bootstrap/Button';
 
 class Main extends React.Component{
-    store: FoodStore;
     
     render(){
         const handleSelect=(e:any)=>{
