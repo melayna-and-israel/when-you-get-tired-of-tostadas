@@ -22,9 +22,6 @@ class FoodStore{
         this.dislikes = "";
     }
 
-    @action addRecipeQuery(k: string, v: any){
-        this.recipeQuery[k] = v;
-    }
 
 
     @action updateDietType(selected:string){
@@ -36,6 +33,28 @@ class FoodStore{
     }
     @action updateDislikes(selected:string){
         this.dislikes = selected;
+    }
+
+    @action updateCuisine(selected: string[]){
+        this.addRecipeQuery("cuisine", selected.join(","));
+    }
+
+    @action updateExcludeCuisine(selected: string[]){
+        this.addRecipeQuery("excludeCuisine", selected.join(","));
+    }
+
+    @action updateMaxCook(selected: Number){
+        this.addRecipeQuery("maxReadyTime", selected);
+        console.log(this.recipeQuery);
+    }
+
+    @action updateSort(selected: string, order: string){
+        this.addRecipeQuery("sort", selected);
+        this.addRecipeQuery("sortDirection", order);
+    }
+
+    addRecipeQuery(k: string, v: any){
+        this.recipeQuery[k] = v;
     }
 
 

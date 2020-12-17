@@ -74,14 +74,16 @@ class Main extends React.Component<PageProps, IState>{
         }
         const editIntolerances=(event:any)=>{
             let intolerances = this.state.intolerances;
+
+            //if item has been check, take it out
             if (this.state.intolerances.includes(event.target.id)){
                 let index = this.state.intolerances.indexOf(event.target.id);
                 intolerances.splice(index, 1);
                 console.log("in the list and taking it out");
                 
             }
+            //else add it to intolerances
             else{
-                
                 intolerances.push(event.target.id);
             }
             console.log(intolerances);

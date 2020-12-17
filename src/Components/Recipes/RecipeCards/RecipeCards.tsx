@@ -25,10 +25,10 @@ class RecipeCards extends React.Component<Props, State>{
 
     renderRecipeRows(){
         let recipeslist = []
-        let cols: number = 5;
+        let cols: number = 4;
         for(let j = 0;j<Math.ceil(this.props.recipes.length/cols);j++){
             recipeslist.push(
-                <Row lg="5">{this.renderRecipes(cols, j)}</Row>
+                <Row key={j} lg={cols}>{this.renderRecipes(cols, j)}</Row>
             );
         }
         return recipeslist;
@@ -40,10 +40,9 @@ class RecipeCards extends React.Component<Props, State>{
         for(let i = 0;i<cols;i++){
             if(cols*row +i < this.props.recipes.length){
                 let recipe = this.props.recipes[cols*row +i];
-                console.log(recipe);
                 recipesList.push(
-                    <Col>
-                        <RecipeCard key={cols*row +i} recipeName={recipe.title} recipeImage={recipe.image}></RecipeCard>
+                    <Col key={cols*row +i}>
+                        <RecipeCard  recipeName={recipe.title} recipeImage={recipe.image}></RecipeCard>
                     </Col>
                 )
             }
