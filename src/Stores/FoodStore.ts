@@ -9,9 +9,9 @@ class FoodStore{
     client: DefaultApi;
     @observable recipeQuery: ComplexSearch;
     @observable params: string;
-    @observable dietType:string;
-    @observable intolerances:string[];
-    @observable dislikes:string;
+    // dietType:string;
+    // intolerances:string[];
+    // dislikes:string;
 
     constructor(){
         this.client = new DefaultApi(new ApiClient());
@@ -19,22 +19,25 @@ class FoodStore{
             _number : 10,
         };
         this.params = "";
-        this.dietType = "No Diet Restriction";
-        this.intolerances = [];
-        this.dislikes = "";
+        // this.dietType = "No Diet Restriction";
+        // this.intolerances = [];
+        // this.dislikes = "";
     }
 
 
 
     @action updateDietType(selected:string){
-        this.dietType = selected;
+        this.addRecipeQuery("diet", selected);
+        // this.dietType = selected;
     }
 
     @action updateIntolerances(selected:string[]){
-        this.intolerances = selected;
+        this.addRecipeQuery("intolerances", selected);
+        // this.intolerances = selected;
     }
     @action updateDislikes(selected:string){
-        this.dislikes = selected;
+        this.addRecipeQuery("excludeIngredients", selected);
+        // this.dislikes = selected;
     }
 
     @action updateCuisine(selected: string[]){

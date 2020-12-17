@@ -6,6 +6,7 @@ import './RecipeCard.sass'
 type RecipeCardProps = {
     recipeName : string,
     recipeImage: string,
+    recipeID: number
 }
 
 class RecipeCard extends React.Component<RecipeCardProps>{
@@ -18,7 +19,7 @@ class RecipeCard extends React.Component<RecipeCardProps>{
                 <Card.Text>
                     This is the summary of the recipe
                 </Card.Text>
-                <Button variant="primary">Visit recipe</Button>
+                <Button variant="primary" href={`/recipes/${this.props.recipeID}`}>Visit recipe</Button>
                 </Card.Body>
             </Card>
         )

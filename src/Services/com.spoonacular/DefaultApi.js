@@ -321,7 +321,7 @@ export default class DefaultApi {
         'instructions': instructions
       };
 
-      let authNames = [];
+      let authNames = ["apiKeyScheme"];
       let contentTypes = ['application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
       let returnType = Object;
@@ -1363,7 +1363,7 @@ export default class DefaultApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ["apiKeyScheme"];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Object;
@@ -3755,7 +3755,7 @@ export default class DefaultApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ["apiKeyScheme"];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Object;
@@ -4259,7 +4259,7 @@ export default class DefaultApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ["apiKeyScheme"];
       let contentTypes = [];
       let accepts = ['text/html'];
       let returnType = 'String';

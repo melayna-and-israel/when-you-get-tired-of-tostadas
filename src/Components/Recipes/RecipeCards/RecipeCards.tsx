@@ -42,7 +42,7 @@ class RecipeCards extends React.Component<Props, State>{
                 let recipe = this.props.recipes[cols*row +i];
                 recipesList.push(
                     <Col key={cols*row +i}>
-                        <RecipeCard  recipeName={recipe.title} recipeImage={recipe.image}></RecipeCard>
+                        <RecipeCard recipeID={recipe.id} recipeName={recipe.title} recipeImage={recipe.image}></RecipeCard>
                     </Col>
                 )
             }
