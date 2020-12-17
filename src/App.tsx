@@ -10,6 +10,7 @@ import FoodStore from './Stores/FoodStore';
 
 import Main from './Components/Main/Main';
 import Recipes from './Components/Recipes/Page/Page'
+import Recipe from './Components/Recipe/Page/Page'
 
 class App extends React.Component{
     store: FoodStore;
@@ -30,19 +31,25 @@ class App extends React.Component{
                             <li>
                             <Link to="/recipes"> Filter Recipes</Link>
                             </li>
+                            
                         </ul>
                     </nav>
                 </div>
 
                 <Switch>
-                    <Route path="/recipes">
+                    <Route path="/recipes" exact>
                         <Recipes foodStore = {this.store}/>
+                    </Route>
+                    <Route path="/recipes/:id">
+                        <Recipe  foodStore = {this.store} />
+                        
                     </Route>
 
                     {/* Pass the store as a prop to the main page */}
                     <Route path="/">
                         <Main foodStore = {this.store}/>
                     </Route>
+                   
                     
                 </Switch>
             </Router>

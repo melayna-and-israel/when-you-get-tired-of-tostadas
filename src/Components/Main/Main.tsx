@@ -1,7 +1,6 @@
 import React from 'react'
 import './main.sass';
 import FoodStore from '../../Stores/FoodStore'
-// import Food from '../Food/Food';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -9,12 +8,6 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 
 
-// import DropdownMenu from 'react-bootstrap/Button';
-// import DropdownToggle from 'react-bootstrap/Button';
-// import DropdownButton from 'react-bootstrap/Button';
-
-
-import DropdownItem from 'react-bootstrap/Button';
 interface IState {
     dietType: string;
     intolerances:string[];
@@ -26,18 +19,17 @@ type PageProps = {
     foodStore: FoodStore;
 }
 
-// const TITLE = "Build Diet Profile"
 
 class Main extends React.Component<PageProps, IState>{
     foodStore:FoodStore;
-    // textInput:React.RefObject<HTMLInputElement>;
+ 
     textInput:any;
     intolerances = ['dairy', 'egg', 'soy', 'sulfite', 'gluten', 'grain', 'peanut', 'seafood', 'tree nut', 'wheat', 'sesame', 'shellfish'];
     constructor(props: PageProps){
         super(props);
         this.foodStore = props.foodStore;
         this.state={
-            dietType : this.foodStore.dietType,
+            dietType : "No Diet Restriction",
             intolerances:[],
             dislikes: ""
         }
@@ -47,9 +39,7 @@ class Main extends React.Component<PageProps, IState>{
         document.title = "Build Diet Profile"
       }
 
-    // componentDidUpdate(prevPops: PageProps) {
-       
-    // }
+
 
     renderDietPreference (){
         return(
@@ -93,19 +83,43 @@ class Main extends React.Component<PageProps, IState>{
         
         const saveData = ()=>{
             this.foodStore.updateDietType(this.state.dietType);
-            console.log(this.foodStore.dietType);
             this.foodStore.updateIntolerances(this.state.intolerances);
             this.foodStore.updateDislikes(this.textInput.current.value);
+            this.foodStore.addRecipeQuery("intolerances", this.state.intolerances.join(","));
+            this.foodStore.addRecipeQuery("diet", this.state.dietType);
+            this.foodStore.addRecipeQuery("excludeIngredients", this.state.dislikes);
+            console.log(this.foodStore.recipeQuery);
             
         }
 
-        const createCheckBox = () =>{
+        const renderCheckBoxRow = () =>{
+            let intoleranceslist = []
+            let cols: number = 6;
+            for(let j = 0;j<Math.ceil(this.intolerances.length/cols);j++){
+                intoleranceslist.push(
+                    <Row key={j} lg="6" md="3">{renderCheckBox(cols, j)}</Row>
+                );
+            }
+            return intoleranceslist;
+        }
+
+        const renderCheckBox = (cols: number, row: number) =>{
             let intoleranceBoxes = []
             let i = 0;
-            // for (i = 0; i < this.intolerances.length;i++){
-            //     new Chexb
-            //     intoleranceBoxes.push()
-            // }
+           
+            for(let i = 0;i<cols;i++){
+                if(cols*row +i < this.intolerances.length){
+                    let intolerance = this.intolerances[cols*row +i];
+                    console.log(intolerance);
+                    intoleranceBoxes.push(
+                        <Col key={cols*row +i}>
+                            <Form.Check type="checkbox" id={intolerance} label={intolerance} onChange={editIntolerances}></Form.Check>
+                            {/* <Form.Check type="checkbox" id={intolerance} label={intolerance} onChange={editIntolerances}></Form.Check> */}
+                        </Col>
+                    )
+                }
+            }
+            return intoleranceBoxes;
         }
 
         return(
@@ -136,117 +150,8 @@ class Main extends React.Component<PageProps, IState>{
                 <Form>
                 <Form.Group>
                 <Form.Label>Select any intolerances:</Form.Label>
+                {renderCheckBoxRow()}
 
-                <Row>
-                    <Col>
-                        <Row>
-                            <Form.Check inline
-                                type="checkbox"
-                                id="dairy"
-                                label="dairy"
-                                onChange={editIntolerances} />
-                        </Row>
-                        <Row>
-                            <Form.Check inline
-                                type="checkbox"
-                                id="egg"
-                                label="egg"
-                                // checked={this.state.peanuts}
-                                onChange={editIntolerances} />
-                        </Row>
-                    </Col>
-                    <Col>
-                        <Row>
-                            <Form.Check inline
-                                type="checkbox"
-                                id="gluten"
-                                label="gluten"
-                                // checked={this.state.peanuts}
-                                onChange={editIntolerances} />
-                        </Row>
-                        <Row>
-                            <Form.Check inline
-                                type="checkbox"
-                                id="grain"
-                                label="grain"
-                                // checked={this.state.peanuts}
-                                onChange={editIntolerances} />
-                        </Row>
-                    </Col>
-                    <Col>
-                        <Row>
-                            <Form.Check inline
-                                type="checkbox"
-                                id="peanut"
-                                label="peanut"
-                                // checked={this.state.peanuts}
-                                onChange={editIntolerances} />
-                        </Row>
-                        <Row>
-                            <Form.Check inline
-                                type="checkbox"
-                                id="seafood"
-                                label="seafood"
-                                // checked={this.state.peanuts}
-                                onChange={editIntolerances} />
-                        </Row>
-                    </Col>
-               
-                    <Col>
-                        <Row>
-                            <Form.Check inline
-                                type="checkbox"
-                                id="sesame"
-                                label="sesame"
-                                // checked={this.state.peanuts}
-                                onChange={editIntolerances} />
-                        </Row>
-                        <Row>
-                        <Form.Check inline
-                            type="checkbox"
-                            id="shellfish"
-                            label="shellfish"
-                            // checked={this.state.peanuts}
-                            onChange={editIntolerances} />
-                        </Row>
-                    </Col>
-                    <Col>
-                        <Row>
-                            <Form.Check inline
-                                type="checkbox"
-                                id="soy"
-                                label="soy"
-                                // checked={this.state.peanuts}
-                                onChange={editIntolerances} />
-                        </Row>
-                        <Row>
-                            <Form.Check inline
-                                type="checkbox"
-                                id="sulfite"
-                                label="sulfite"
-                                // checked={this.state.peanuts}
-                                onChange={editIntolerances} />
-                        </Row>
-                    </Col>
-                    <Col>
-                        <Row>
-                        <Form.Check inline
-                            type="checkbox"
-                            id="tree nut"
-                            label="treenut"
-                            // checked={this.state.peanuts}
-                            onChange={editIntolerances} />
-                        </Row>
-                        <Row>
-                            <Form.Check inline
-                                type="checkbox"
-                                id="wheat"
-                                label="wheat"
-                                // checked={this.state.peanuts}
-                                onChange={editIntolerances} />
-                        </Row>
-                    </Col>
-                </Row>
                     
                     <Form.Label>What ingredients do you not like?</Form.Label>
                     <Form.Control type="ingredients" placeholder="Enter ingredients separated by commas" onChange={editDislikes} ref ={this.textInput} />
@@ -261,11 +166,8 @@ class Main extends React.Component<PageProps, IState>{
                     <button onClick = {saveData}>Save</button>
                 </div>
 
-                </Container>
-                
-                    
+                </Container>   
             </div>
-            
         )
     }
 }
