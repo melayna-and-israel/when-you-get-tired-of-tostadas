@@ -32,7 +32,7 @@ class Main extends React.Component<PageProps, IState>{
     foodStore:FoodStore;
     // textInput:React.RefObject<HTMLInputElement>;
     textInput:any;
-
+    intolerances = ['dairy', 'egg', 'soy', 'sulfite', 'gluten', 'grain', 'peanut', 'seafood', 'tree nut', 'wheat', 'sesame', 'shellfish'];
     constructor(props: PageProps){
         super(props);
         this.foodStore = props.foodStore;
@@ -99,6 +99,15 @@ class Main extends React.Component<PageProps, IState>{
             
         }
 
+        const createCheckBox = () =>{
+            let intoleranceBoxes = []
+            let i = 0;
+            // for (i = 0; i < this.intolerances.length;i++){
+            //     new Chexb
+            //     intoleranceBoxes.push()
+            // }
+        }
+
         return(
             
             <div>
@@ -127,84 +136,116 @@ class Main extends React.Component<PageProps, IState>{
                 <Form>
                 <Form.Group>
                 <Form.Label>Select any intolerances:</Form.Label>
+
                 <Row>
-                    <Form.Check inline
-                        type="checkbox"
-                        id="dairy"
-                        label="dairy"
-                        // checked={this.state.peanuts}
-                        onChange={editIntolerances} />
-                   
-                    <Form.Check inline
-                        type="checkbox"
-                        id="egg"
-                        label="egg"
-                        // checked={this.state.peanuts}
-                        onChange={editIntolerances} />
-                   
-                    <Form.Check inline
-                        type="checkbox"
-                        id="gluten"
-                        label="gluten"
-                        // checked={this.state.peanuts}
-                        onChange={editIntolerances} />
-                   
-                    <Form.Check inline
-                        type="checkbox"
-                        id="grain"
-                        label="grain"
-                        // checked={this.state.peanuts}
-                        onChange={editIntolerances} />
-                    <Form.Check inline
-                        type="checkbox"
-                        id="peanut"
-                        label="peanut"
-                        // checked={this.state.peanuts}
-                        onChange={editIntolerances} />
-                    <Form.Check inline
-                        type="checkbox"
-                        id="seafood"
-                        label="seafood"
-                        // checked={this.state.peanuts}
-                        onChange={editIntolerances} />
-                </Row>
-                <Row>
-                    <Form.Check inline
-                        type="checkbox"
-                        id="sesame"
-                        label="sesame"
-                        // checked={this.state.peanuts}
-                        onChange={editIntolerances} />
-                    <Form.Check inline
-                        type="checkbox"
-                        id="shellfish"
-                        label="shellfish"
-                        // checked={this.state.peanuts}
-                        onChange={editIntolerances} />
-                    <Form.Check inline
-                        type="checkbox"
-                        id="soy"
-                        label="soy"
-                        // checked={this.state.peanuts}
-                        onChange={editIntolerances} />
-                    <Form.Check inline
-                        type="checkbox"
-                        id="sulfite"
-                        label="sulfite"
-                        // checked={this.state.peanuts}
-                        onChange={editIntolerances} />
-                    <Form.Check inline
-                        type="checkbox"
-                        id="tree nut"
-                        label="tree nut"
-                        // checked={this.state.peanuts}
-                        onChange={editIntolerances} />
-                    <Form.Check inline
-                        type="checkbox"
-                        id="wheat"
-                        label="wheat"
-                        // checked={this.state.peanuts}
-                        onChange={editIntolerances} />
+                    <Col>
+                        <Row>
+                            <Form.Check inline
+                                type="checkbox"
+                                id="dairy"
+                                label="dairy"
+                                onChange={editIntolerances} />
+                        </Row>
+                        <Row>
+                            <Form.Check inline
+                                type="checkbox"
+                                id="egg"
+                                label="egg"
+                                // checked={this.state.peanuts}
+                                onChange={editIntolerances} />
+                        </Row>
+                    </Col>
+                    <Col>
+                        <Row>
+                            <Form.Check inline
+                                type="checkbox"
+                                id="gluten"
+                                label="gluten"
+                                // checked={this.state.peanuts}
+                                onChange={editIntolerances} />
+                        </Row>
+                        <Row>
+                            <Form.Check inline
+                                type="checkbox"
+                                id="grain"
+                                label="grain"
+                                // checked={this.state.peanuts}
+                                onChange={editIntolerances} />
+                        </Row>
+                    </Col>
+                    <Col>
+                        <Row>
+                            <Form.Check inline
+                                type="checkbox"
+                                id="peanut"
+                                label="peanut"
+                                // checked={this.state.peanuts}
+                                onChange={editIntolerances} />
+                        </Row>
+                        <Row>
+                            <Form.Check inline
+                                type="checkbox"
+                                id="seafood"
+                                label="seafood"
+                                // checked={this.state.peanuts}
+                                onChange={editIntolerances} />
+                        </Row>
+                    </Col>
+               
+                    <Col>
+                        <Row>
+                            <Form.Check inline
+                                type="checkbox"
+                                id="sesame"
+                                label="sesame"
+                                // checked={this.state.peanuts}
+                                onChange={editIntolerances} />
+                        </Row>
+                        <Row>
+                        <Form.Check inline
+                            type="checkbox"
+                            id="shellfish"
+                            label="shellfish"
+                            // checked={this.state.peanuts}
+                            onChange={editIntolerances} />
+                        </Row>
+                    </Col>
+                    <Col>
+                        <Row>
+                            <Form.Check inline
+                                type="checkbox"
+                                id="soy"
+                                label="soy"
+                                // checked={this.state.peanuts}
+                                onChange={editIntolerances} />
+                        </Row>
+                        <Row>
+                            <Form.Check inline
+                                type="checkbox"
+                                id="sulfite"
+                                label="sulfite"
+                                // checked={this.state.peanuts}
+                                onChange={editIntolerances} />
+                        </Row>
+                    </Col>
+                    <Col>
+                        <Row>
+                        <Form.Check inline
+                            type="checkbox"
+                            id="tree nut"
+                            label="treenut"
+                            // checked={this.state.peanuts}
+                            onChange={editIntolerances} />
+                        </Row>
+                        <Row>
+                            <Form.Check inline
+                                type="checkbox"
+                                id="wheat"
+                                label="wheat"
+                                // checked={this.state.peanuts}
+                                onChange={editIntolerances} />
+                        </Row>
+                    </Col>
                 </Row>
                     
                     <Form.Label>What ingredients do you not like?</Form.Label>
