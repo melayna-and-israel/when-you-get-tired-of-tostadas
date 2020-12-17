@@ -8,6 +8,7 @@ class FoodStore{
 
     client: DefaultApi;
     @observable recipeQuery: ComplexSearch;
+    @observable params: string;
     @observable dietType:string;
     @observable intolerances:string[];
     @observable dislikes:string;
@@ -16,7 +17,8 @@ class FoodStore{
         this.client = new DefaultApi(new ApiClient());
         this.recipeQuery = {
             _number : 10,
-        }
+        };
+        this.params = "";
         this.dietType = "No Diet Restriction";
         this.intolerances = [];
         this.dislikes = "";
@@ -51,6 +53,16 @@ class FoodStore{
     @action updateSort(selected: string, order: string){
         this.addRecipeQuery("sort", selected);
         this.addRecipeQuery("sortDirection", order);
+    }
+
+    @action clearQuery(){
+        this.recipeQuery = {
+            _number : 10,
+        };
+    }
+
+    @action updateParams(selected: string){
+        this.params = selected;
     }
 
     addRecipeQuery(k: string, v: any){

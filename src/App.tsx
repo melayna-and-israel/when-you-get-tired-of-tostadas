@@ -10,6 +10,8 @@ import FoodStore from './Stores/FoodStore';
 
 import Main from './Components/Main/Main';
 import Recipes from './Components/Recipes/Page/Page'
+import Header from './Components/Header/Header'
+import MealPlan from './Components/MealPlan/Page/Page'
 
 class App extends React.Component{
     store: FoodStore;
@@ -21,22 +23,13 @@ class App extends React.Component{
     render(){
         return (
             <Router>
-                <div>
-                    <nav>
-                        <ul>
-                            <li>
-                                <Link to="/"> Start</Link>
-                            </li>
-                            <li>
-                            <Link to="/recipes"> Filter Recipes</Link>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-
+                <Header foodStore={this.store}></Header>
                 <Switch>
                     <Route path="/recipes">
                         <Recipes foodStore = {this.store}/>
+                    </Route>
+                    <Route path="/mealplan">
+                        <MealPlan></MealPlan>
                     </Route>
 
                     {/* Pass the store as a prop to the main page */}
