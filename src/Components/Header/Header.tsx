@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Form, FormControl, Nav, Navbar} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import FoodStore from '../../Stores/FoodStore';
 
 type Props = {
@@ -27,7 +28,6 @@ class Header extends React.Component<Props, State>{
     search(){
         this.foodStore.updateParams(this.state.searchFor);
         this.foodStore.clearQuery();
-        
     }
 
     updateSearchSelect(event: any){
@@ -43,13 +43,15 @@ class Header extends React.Component<Props, State>{
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                    <Nav.Link href="/recipes">Recipes</Nav.Link>
-                    <Nav.Link href="#link">Meal Plan</Nav.Link>
-                    <Nav.Link href="#link">Grocery List</Nav.Link>
+                    <Link className="nav-link" to="/recipes">Recipes</Link>
+                    <Link className="nav-link" to="/mealplan">Meal Plan</Link>
+                    <Link className="nav-link" to="#">Grocery List</Link>
                     </Nav>
                     <Form inline>
                         <FormControl type="text" placeholder="Search Recipes" className="mr-sm-2" onChange={this.updateSearchSelect}/>
-                        <Button variant="outline-light" onClick={this.search} href="/recipes">Search</Button>
+                        <Link className="nav-link" to="/recipes" onClick={this.search}>
+                            <Button variant="outline-light" >Search</Button>
+                        </Link>
                     </Form>
                 </Navbar.Collapse>
             </Navbar>

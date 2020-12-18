@@ -28,14 +28,17 @@ class Slider extends React.Component<Props, State>{
                     <MenuItem >Filter Recipes</MenuItem>
                     <SubMenu title="Include Cuisines">
                         <Cuisines 
+                        type="inc"
                         updateQuery={(selected: string[]) => this.props.foodStore.updateCuisine(selected)} 
                         updateRecipe={this.props.updateRecipe}
+                        
                         ></Cuisines>
                     </SubMenu>
                     <SubMenu title="Exclude Cuisines">
                         <Cuisines 
                             updateQuery={(selected: string[]) => this.props.foodStore.updateExcludeCuisine(selected)} 
                             updateRecipe={this.props.updateRecipe}
+                            type="exc"
                         ></Cuisines>
                     </SubMenu>
                     <SubMenu title="Max CookTime">

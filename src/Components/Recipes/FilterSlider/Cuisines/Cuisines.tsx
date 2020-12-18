@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form'
 type Props = {
     updateRecipe: any;
     updateQuery: any;
+    type: string;
 }
 
 type State = {
@@ -52,13 +53,14 @@ class Cuisines extends React.Component<Props, State>{
 
     updateIntolerances(event: any){
         let cuisines = this.state.cuisines;
+        let selected: string = event.target.id.slice(3);
 
         //if item already selected, remove from list
         if(this.state.cuisines.includes(event.target.id)){
-            cuisines = cuisines.filter( c => c !== event.target.id)
+            cuisines = cuisines.filter( c => c !== selected)
         }
         else{
-            cuisines.push(event.target.id);
+            cuisines.push(selected);
         }
         this.setState({
             cuisines: cuisines
@@ -74,7 +76,7 @@ class Cuisines extends React.Component<Props, State>{
         for(let i =0;i<Cuisines.cuisines.length;i++){
             cuisines.push(<Form.Check inline
                 type="checkbox"
-                id={Cuisines.cuisines[i]}
+                id={this.props.type + Cuisines.cuisines[i]}
                 key={i}
                 label={Cuisines.cuisines[i]}
                 onChange = {this.updateIntolerances}

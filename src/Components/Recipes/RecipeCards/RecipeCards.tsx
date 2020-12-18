@@ -5,9 +5,14 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 import RecipeCard from '../RecipeCard/RecipeCard'
+import FoodStore from "../../../Stores/FoodStore"
 
 type Props = {
-    recipes: any[]
+    recipes: any[],
+    foodStore: FoodStore,
+    buttonText: string,
+    buttonFunc: any,
+    updateparentState?: any,
 }
 
 type State = {
@@ -34,17 +39,45 @@ class RecipeCards extends React.Component<Props, State>{
         return recipeslist;
     }
 
+    removeMealFromMealPrep(id: number){
+
+    }
+
     renderRecipes(cols: number, row: number){
         let recipesList = [];
         
         for(let i = 0;i<cols;i++){
             if(cols*row +i < this.props.recipes.length){
                 let recipe = this.props.recipes[cols*row +i];
-                recipesList.push(
-                    <Col key={cols*row +i}>
-                        <RecipeCard recipeID={recipe.id} recipeName={recipe.title} recipeImage={recipe.image}></RecipeCard>
-                    </Col>
-                )
+                if(this.props.updateparentState){
+                    recipesList.push(
+                        <Col key={cols*row +i}>
+                            <RecipeCard 
+                                buttonText={this.props.buttonText}
+                                buttonFunc={(id: number, recipe: any)=>this.props.buttonFunc(id, recipe)}
+                                recipeInfo={recipe}
+                                foodStore = {this.props.foodStore}
+                                recipeID={recipe.id} recipeName={recipe.title} 
+                                recipeImage={recipe.image}
+                                updateParentState={()=>this.props.updateparentState()}></RecipeCard>
+                        </Col>
+                    )
+                }
+                else{
+                    recipesList.push(
+                        <Col key={cols*row +i}>
+                            <RecipeCard 
+                                buttonText={this.props.buttonText}
+                                buttonFunc={(id: number, recipe: any)=>this.props.buttonFunc(id, recipe)}
+                                recipeInfo={recipe}
+                                foodStore = {this.props.foodStore}
+                                recipeID={recipe.id} recipeName={recipe.title} 
+                                recipeImage={recipe.image
+                            }></RecipeCard>
+                        </Col>
+                    )
+                }
+               
             }
         }
         return recipesList;

@@ -67,18 +67,22 @@ class Page extends React.Component<PageProps, State>{
     updateRecipes(){
         console.log(this.foodStore.recipeQuery);
         console.log(this.foodStore.params);
-        // this.foodStore.client.searchRecipes(this.foodStore.params, this.foodStore.recipeQuery, (error: any, data: any)=>{
-        //     console.log(data);
-        //     if(data){
-        //         this.setState({recipes: data.results});
-        //     }
-        // })
+        this.foodStore.client.searchRecipes(this.foodStore.params, this.foodStore.recipeQuery, (error: any, data: any)=>{
+            console.log(data);
+            if(data){
+                this.setState({recipes: data.results});
+            }
+        })
     }
 
     renderRecipes(){
         if(this.state.recipes){
             return (
-                <RecipeCards recipes={this.state.recipes}></RecipeCards>
+                <RecipeCards 
+                buttonText="Add To Meal Plan"
+                buttonFunc={(id: number, recipe: any)=>this.props.foodStore.addMealToMealPlan(id, recipe)}
+                foodStore={this.foodStore} 
+                recipes={this.state.recipes}></RecipeCards>
             )
         }
     }

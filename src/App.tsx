@@ -3,6 +3,7 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
+    Link,
 } from "react-router-dom"
 
 import FoodStore from './Stores/FoodStore';
@@ -29,7 +30,7 @@ class App extends React.Component{
                         <Recipes foodStore = {this.store}/>
                     </Route>
                     <Route path="/mealplan">
-                        <MealPlan></MealPlan>
+                        <MealPlan foodStore={this.store}></MealPlan>
                     </Route>
                     <Route path="/recipes/:id">
                         <Recipe  foodStore = {this.store} />

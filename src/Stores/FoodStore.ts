@@ -9,6 +9,8 @@ class FoodStore{
     client: DefaultApi;
     @observable recipeQuery: ComplexSearch;
     @observable params: string;
+
+    @observable mealPlan : Map<number, any>;
     // dietType:string;
     // intolerances:string[];
     // dislikes:string;
@@ -19,6 +21,7 @@ class FoodStore{
             _number : 10,
         };
         this.params = "";
+        this.mealPlan = new Map()
         // this.dietType = "No Diet Restriction";
         // this.intolerances = [];
         // this.dislikes = "";
@@ -66,6 +69,14 @@ class FoodStore{
 
     @action updateParams(selected: string){
         this.params = selected;
+    }
+
+    @action addMealToMealPlan(id: number, recipeData: any){
+        this.mealPlan.set(id, recipeData);
+    }
+
+    @action removeFromMealPlan(id: number, recipeData: any){
+        this.mealPlan.delete(id);
     }
 
     addRecipeQuery(k: string, v: any){
