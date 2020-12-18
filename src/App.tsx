@@ -13,7 +13,7 @@ import Recipes from './Components/Recipes/Page/Page'
 import Header from './Components/Header/Header'
 import MealPlan from './Components/MealPlan/Page/Page'
 import Recipe from './Components/Recipe/Page/Page'
-import Groceries from './Components/Groceries/Page/Page'
+// import Groceries from './Components/Groceries/Page/Page'
 
 class App extends React.Component{
     store: FoodStore;
@@ -37,10 +37,10 @@ class App extends React.Component{
                         <Recipe  foodStore = {this.store} />
                         
                     </Route>
-                    <Route path="/groceries">
+                    {/* <Route path="/groceries">
                         <Groceries  foodStore = {this.store} />
                         
-                    </Route>
+                    </Route> */}
 
                     {/* Pass the store as a prop to the main page */}
                     <Route path="/">

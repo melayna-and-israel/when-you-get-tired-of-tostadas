@@ -20,7 +20,7 @@ type State = {
 }
 
 class Slider extends React.Component<Props, State>{
-
+    
     render(){
         return(
             <ProSidebar className="slider">

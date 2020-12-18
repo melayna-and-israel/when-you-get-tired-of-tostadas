@@ -27,6 +27,8 @@ class RecipeCard extends React.Component<RecipeCardProps>{
         this.redirectToRecipe = this.redirectToRecipe.bind(this)
     }
 
+
+    // call data store and update the parent
     modifyMealPlan(){   
         this.props.buttonFunc(this.props.recipeID, this.props.recipeInfo);
         if(this.props.updateParentState){

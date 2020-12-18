@@ -24,6 +24,12 @@ class Page extends React.Component<Props, State>{
         this.updateRecipes = this.updateRecipes.bind(this);
     }
 
+    //sets the document title
+    componentDidMount(){
+        document.title = ("Meal Plan");
+    }
+
+    //converts map from store into a list of the map values
     getRecipes(mealPlan: Map<number, any>): any[]{
         let recipes: any[] = []
         mealPlan.forEach((value, key) => {
@@ -32,6 +38,7 @@ class Page extends React.Component<Props, State>{
         return recipes;
     }
 
+    //when change occurs, trigger a set state from to update the recipes shown
     updateRecipes(){
         this.setState({
             mealPlan: this.getRecipes(this.props.foodStore.mealPlan)

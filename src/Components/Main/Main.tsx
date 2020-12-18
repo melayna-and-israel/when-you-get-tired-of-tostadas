@@ -6,6 +6,8 @@ import Row from 'react-bootstrap/Row';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 
 interface IState {
@@ -52,7 +54,6 @@ class Main extends React.Component<PageProps, IState>{
     
     render(){
         const handleSelect=(e:any)=>{
-            console.log(e);
             this.setState({
                 dietType:e
             }) 
@@ -73,14 +74,12 @@ class Main extends React.Component<PageProps, IState>{
             if (this.state.intolerances.includes(event.target.id)){
                 let index = this.state.intolerances.indexOf(event.target.id);
                 intolerances.splice(index, 1);
-                console.log("in the list and taking it out");
                 
             }
             //else add it to intolerances
             else{
                 intolerances.push(event.target.id);
             }
-            console.log(intolerances);
             this.setState({
                 intolerances:intolerances
             })
@@ -94,7 +93,6 @@ class Main extends React.Component<PageProps, IState>{
             this.foodStore.addRecipeQuery("intolerances", this.state.intolerances.join(","));
             this.foodStore.addRecipeQuery("diet", this.state.dietType);
             this.foodStore.addRecipeQuery("excludeIngredients", this.state.dislikes);
-            console.log(this.foodStore.recipeQuery);
             
         }
 
@@ -118,7 +116,6 @@ class Main extends React.Component<PageProps, IState>{
             for(let i = 0;i<cols;i++){
                 if(cols*row +i < this.intolerances.length){
                     let intolerance = this.intolerances[cols*row +i];
-                    console.log(intolerance);
                     intoleranceBoxes.push(
                         <Col key={cols*row +i}>
                             <Form.Check type="checkbox" id={intolerance} label={intolerance} onChange={editIntolerances}></Form.Check>
@@ -171,7 +168,10 @@ class Main extends React.Component<PageProps, IState>{
                 </Form>
                
                 <div>
-                    <button onClick = {saveData}>Save</button>
+                    <Link to="/recipes" onClick ={saveData}>
+                    <Button>Save</Button> 
+                    </Link>
+                   
                 </div>
 
                 </Container>   

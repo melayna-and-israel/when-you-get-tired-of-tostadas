@@ -28,6 +28,7 @@ class RecipeCards extends React.Component<Props, State>{
         this.renderRecipeRows = this.renderRecipeRows.bind(this);
     }
 
+    //render cards in rows of 4
     renderRecipeRows(){
         let recipeslist = []
         let cols: number = 4;
@@ -39,10 +40,7 @@ class RecipeCards extends React.Component<Props, State>{
         return recipeslist;
     }
 
-    removeMealFromMealPrep(id: number){
-
-    }
-
+    //render the card depending on what page we are on
     renderRecipes(cols: number, row: number){
         let recipesList = [];
         
@@ -51,6 +49,7 @@ class RecipeCards extends React.Component<Props, State>{
                 let recipe = this.props.recipes[cols*row +i];
                 if(this.props.updateparentState){
                     recipesList.push(
+                        // if in meal plan page, set button to delete recipe from meal plan
                         <Col key={cols*row +i}>
                             <RecipeCard 
                                 buttonText={this.props.buttonText}
@@ -64,6 +63,7 @@ class RecipeCards extends React.Component<Props, State>{
                     )
                 }
                 else{
+                    // if in recipes page, set button to add recipe to meal plan
                     recipesList.push(
                         <Col key={cols*row +i}>
                             <RecipeCard 

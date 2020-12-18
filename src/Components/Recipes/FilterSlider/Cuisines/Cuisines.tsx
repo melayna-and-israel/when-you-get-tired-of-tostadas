@@ -51,6 +51,7 @@ class Cuisines extends React.Component<Props, State>{
         this.renderCuisineForm = this.renderCuisineForm.bind(this);
     }
 
+    //makes calls to the data store updating search queries
     updateIntolerances(event: any){
         let cuisines = this.state.cuisines;
         let selected: string = event.target.id.slice(3);
@@ -70,6 +71,7 @@ class Cuisines extends React.Component<Props, State>{
         this.props.updateRecipe();
     }
 
+    // iterates through all the cuisines creating a form
     renderCuisineForm(){
         let cuisines:any = [];
 

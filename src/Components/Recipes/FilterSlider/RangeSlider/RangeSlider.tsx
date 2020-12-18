@@ -70,6 +70,7 @@ class RangeSlider extends React.Component<Props>{
     this.onChangeCommitted = this.onChangeCommitted.bind(this);
   }
 
+  //updates the text displayed above the slider
   valueLabelFormat(value: Number){
     if(value === 120){
       return `120+ mins`
@@ -77,6 +78,7 @@ class RangeSlider extends React.Component<Props>{
       return `${value} mins`
   }
 
+  //updates the data store query
   onChangeCommitted(event: React.ChangeEvent<{}>, value: number | number[]){
     this.props.updateQuery(value);
     this.props.updateRecipe();
