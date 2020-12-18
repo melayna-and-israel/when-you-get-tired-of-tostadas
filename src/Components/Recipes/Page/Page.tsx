@@ -51,8 +51,10 @@ class Page extends React.Component<PageProps, State>{
             )
         }
     }
+
     
     render(){
+
         return (
             <div>
                 <Container fluid>

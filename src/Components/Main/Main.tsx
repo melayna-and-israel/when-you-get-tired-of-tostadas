@@ -114,7 +114,6 @@ class Main extends React.Component<PageProps, IState>{
                     intoleranceBoxes.push(
                         <Col key={cols*row +i}>
                             <Form.Check type="checkbox" id={intolerance} label={intolerance} onChange={editIntolerances}></Form.Check>
-                            {/* <Form.Check type="checkbox" id={intolerance} label={intolerance} onChange={editIntolerances}></Form.Check> */}
                         </Col>
                     )
                 }
