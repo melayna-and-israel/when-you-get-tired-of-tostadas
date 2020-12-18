@@ -347,22 +347,6 @@ class Page extends React.Component<PageProps, State>{
         ]
         
         
-        // this.foodStore.client.getRecipeInformation(this.recipeID, {includeNutrition:true}, (error: any, data: any)=>{
-        //     console.log(data);
-        //     console.log(data.image);
-        //     this.recipeInfo = data;
-        //     if(data){
-        //         this.setState({recipeInfo: data});
-        //     }
-            
-        // })
-        // this.foodStore.client.getAnalyzedRecipeInstructions(this.recipeID, {stepBreakdown: true}, (error: any, data: any)=>{
-        //     console.log(data);
-        //     // if(data){
-        //     //     this.setState({recipes: data.results});
-        //     // }
-            
-        // })
         this.recipeNutrition = {
             "calories": "316",
             "carbs": "49g",
@@ -541,19 +525,13 @@ class Page extends React.Component<PageProps, State>{
                 }
             ]    
         }
-        // this.foodStore.client.getRecipeNutritionWidgetByID(this.recipeID, (error: any, data: any)=>{
-        //     console.log(data);
-        //     // this.recipeSummary = data.summary;
-        //     // if(data){
-        //     //     this.setState({recipesNutrition: data.results});
-        //     // }
-            
-        // })
+        
     }
     componentDidMount(){
         document.title = "Recipe page";
       }
     
+    //API call to get information about a recipe
     getRecipeInfo(){
         // this.foodStore.client.getRecipeInformation(this.recipeID, {includeNutrition:true}, (error: any, data: any)=>{
         //     console.log(data);
@@ -576,6 +554,7 @@ class Page extends React.Component<PageProps, State>{
         this.setState(this.state);
     }
 
+    //API call to get a recipe's instructions
     getRecipeInstructions(){
         // this.foodStore.client.getAnalyzedRecipeInstructions(this.recipeID, {stepBreakdown: true}, (error: any, data: any)=>{
         //     if (data){
@@ -889,6 +868,7 @@ class Page extends React.Component<PageProps, State>{
         this.setState(this.state);
     }
     
+    //Create List items for each instruction
     renderInstructions(){
         let instructions = []
         let i = 0;
@@ -902,6 +882,7 @@ class Page extends React.Component<PageProps, State>{
         return instructions;
     }
 
+    //Create text for each ingredient
     renderIngredients(){
    
         let ingredients = [];

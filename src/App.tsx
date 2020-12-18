@@ -11,6 +11,7 @@ import FoodStore from './Stores/FoodStore';
 import Main from './Components/Main/Main';
 import Recipes from './Components/Recipes/Page/Page'
 import Recipe from './Components/Recipe/Page/Page'
+import Groceries from './Components/Groceries/Page/Page'
 
 class App extends React.Component{
     store: FoodStore;
@@ -31,6 +32,9 @@ class App extends React.Component{
                             <li>
                             <Link to="/recipes"> Filter Recipes</Link>
                             </li>
+                            <li>
+                            <Link to="/groceries"> See Grocery List</Link>
+                            </li>
                             
                         </ul>
                     </nav>
@@ -42,6 +46,10 @@ class App extends React.Component{
                     </Route>
                     <Route path="/recipes/:id">
                         <Recipe  foodStore = {this.store} />
+                        
+                    </Route>
+                    <Route path="/groceries">
+                        <Groceries  foodStore = {this.store} />
                         
                     </Route>
 
