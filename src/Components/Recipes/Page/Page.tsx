@@ -10,7 +10,6 @@ import ComplexSearch from '../../../Stores/complexSearch'
 import {Container, Row, Col, } from "react-bootstrap"
 import {makeStyles, createStyles, Theme} from "@material-ui/core/styles"
 import { FormControl, InputLabel, MenuItem, Select } from "@material-ui/core"
-import { values } from "mobx"
 
 type PageProps = {
     foodStore: FoodStore;
@@ -109,6 +108,7 @@ class Page extends React.Component<PageProps, State>{
     }
     
     render(){
+
         return (
             <div>
                 <Container fluid>

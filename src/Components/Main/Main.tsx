@@ -19,7 +19,7 @@ type PageProps = {
     foodStore: FoodStore;
 }
 
-
+//Component for Building Diet Profile
 class Main extends React.Component<PageProps, IState>{
     foodStore:FoodStore;
  
@@ -35,15 +35,16 @@ class Main extends React.Component<PageProps, IState>{
         }
         this.textInput = React.createRef(); 
     }
+
     componentDidMount(){
         document.title = "Build Diet Profile"
       }
 
 
-
+    //Updates the display of a user's diet preference
     renderDietPreference (){
         return(
-            <p>Diet Preference: {this.state.dietType}</p>
+            <p className="dietPref">Diet Preference: {this.state.dietType}</p>
         )              
       }
 
@@ -56,12 +57,15 @@ class Main extends React.Component<PageProps, IState>{
                 dietType:e
             }) 
           }
-
+        
+        //Updating the state with user dislikes upon change
         const editDislikes = (event:any)=>{
             this.setState({
                 dislikes:this.textInput.current.value
             })
         }
+        
+        //Updating the state with intolerances upon change
         const editIntolerances=(event:any)=>{
             let intolerances = this.state.intolerances;
 
@@ -82,7 +86,7 @@ class Main extends React.Component<PageProps, IState>{
             })
         }
 
-        
+        //Saves the user's inputted data to the food store
         const saveData = ()=>{
             this.foodStore.updateDietType(this.state.dietType);
             this.foodStore.updateIntolerances(this.state.intolerances);
@@ -94,6 +98,7 @@ class Main extends React.Component<PageProps, IState>{
             
         }
 
+        //Creates a row of checkboxes
         const renderCheckBoxRow = () =>{
             let intoleranceslist = []
             let cols: number = 6;
@@ -105,6 +110,7 @@ class Main extends React.Component<PageProps, IState>{
             return intoleranceslist;
         }
 
+        //Creates a checkbox for each intolerance
         const renderCheckBox = (cols: number, row: number) =>{
             let intoleranceBoxes = []
             let i = 0;
@@ -116,7 +122,6 @@ class Main extends React.Component<PageProps, IState>{
                     intoleranceBoxes.push(
                         <Col key={cols*row +i}>
                             <Form.Check type="checkbox" id={intolerance} label={intolerance} onChange={editIntolerances}></Form.Check>
-                            {/* <Form.Check type="checkbox" id={intolerance} label={intolerance} onChange={editIntolerances}></Form.Check> */}
                         </Col>
                     )
                 }
@@ -132,7 +137,7 @@ class Main extends React.Component<PageProps, IState>{
                     <p>Build Your Diet Profile</p>
                 </Row>
                 
-                <Dropdown onSelect={handleSelect} >
+                <Dropdown onSelect={handleSelect} className="dietToggle">
                     <Dropdown.Toggle variant="success" id="dropdown-basic">
                         Diet Preference
                     </Dropdown.Toggle>
@@ -148,14 +153,15 @@ class Main extends React.Component<PageProps, IState>{
                 <div>
                     {this.renderDietPreference()}
                 </div>
+                
 
                 <Form>
                 <Form.Group>
                 <Form.Label>Select any intolerances:</Form.Label>
-                {renderCheckBoxRow()}
+                    {renderCheckBoxRow()}
 
                     
-                    <Form.Label>What ingredients do you not like?</Form.Label>
+                    <Form.Label className="dislikes">What ingredients do you not like?</Form.Label>
                     <Form.Control type="ingredients" placeholder="Enter ingredients separated by commas" onChange={editDislikes} ref ={this.textInput} />
                     <Form.Text className="text-muted">
                      Ex: mushrooms, olives, etc.
